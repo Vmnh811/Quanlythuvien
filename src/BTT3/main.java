@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class main {
     public static void main(String[] args) {
-    	// Bài 1
         Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập mã sách: ");
         String maSach = scanner.nextLine();
@@ -23,26 +22,62 @@ public class main {
 
         System.out.print("Nhập số lượng: ");
         int soLuong = scanner.nextInt();
-
-        // Bài 2
-        double thanhTien = donGia * soLuong;
-
-        // Bài 3
-        double phiVanChuyen = 0.05 * thanhTien;
-
-        // Bài 4
-        double tongTienNhap = thanhTien + phiVanChuyen;
-
-        // Bài 1: Hiển thị lại
+        // --- Bài 1
+        boolean hopLe = (donGia > 0) && (soLuong >= 0) && (namXuatBan > 0 && namXuatBan <= 2026);
+        // --- Bài 2
+        String phanLoaiGia = "";
+        if (donGia < 50000) {
+            phanLoaiGia = "Sách giá thấp";
+        } else if (donGia >= 50000 && donGia <= 100000) {
+            phanLoaiGia = "Sách giá trung bình";
+        } else if (donGia > 100000 && donGia <= 200000) {
+            phanLoaiGia = "Sách giá cao";
+        } else {
+            phanLoaiGia = "Sách giá đặc biệt";
+        }
+        // --- Bài 3
+        String phanLoaiTonKho = "";
+        if (soLuong == 0) {
+            phanLoaiTonKho = "Hết sách";
+        } else if (soLuong >= 1 && soLuong <= 5) {
+            phanLoaiTonKho = "Sắp hết";
+        } else if (soLuong >= 6 && soLuong <= 20) {
+            phanLoaiTonKho = "Còn ít";
+        } else {
+            phanLoaiTonKho = "Còn nhiều";
+        }
+        // --- Bài 4
+        System.out.println("\n CHỌN THỂ LOẠI SÁCH");
+        System.out.println("1. Sách giáo khoa");
+        System.out.println("2. Sách tham khảo");
+        System.out.println("3. Sách chuyên ngành");
+        System.out.println("4. Sách khác");
+        System.out.print("lựa chọn: ");
+        int luaChon = scanner.nextInt();
+        String loaiSach = "";
+        switch (luaChon) {
+            case 1:
+                loaiSach = "Sách giáo khoa";
+                break;
+            case 2:
+                loaiSach = "Sách tham khảo";
+                break;
+            case 3:
+                loaiSach = "Sách chuyên ngành";
+                break;
+            case 4:
+                loaiSach = "Sách khác";
+                break;
+            default:
+                loaiSach = "Lựa chọn không hợp lệ";
+                break;
+        }
         System.out.println("Mã sách: " + maSach);
         System.out.println("Tên sách: " + tenSach);
-        System.out.println("Tác giả: " + tacGia);
-        System.out.println("Năm xuất bản: " + namXuatBan);
-        System.out.println("Đơn giá: " + donGia);
-        System.out.println("Số lượng: " + soLuong);
-        System.out.println("Thành tiền : " + thanhTien);
-        System.out.println("Phí vận chuyển : " + phiVanChuyen);
-        System.out.println("Tổng tiền nhập : " + tongTienNhap);
+        System.out.println("Bài 1: " + (hopLe ? "Đ" : "S"));
+        System.out.println("Bài 2: " + phanLoaiGia);
+        System.out.println("Bài 3: " + phanLoaiTonKho);
+        System.out.println("Bài 4: " + loaiSach);
 
         scanner.close();
     }
