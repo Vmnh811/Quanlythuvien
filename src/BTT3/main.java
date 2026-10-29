@@ -27,10 +27,10 @@ public class main {
         // Bài 2
         double thanhTien = donGia * soLuong;
 
-        // Bài 3:
+        // Bài 3
         double phiVanChuyen = 0.05 * thanhTien;
 
-        // Bài 4: Tổng tiền nhập = Thành tiền + Phí vận chuyển ---
+        // Bài 4
         double tongTienNhap = thanhTien + phiVanChuyen;
 
         // Bài 1: Hiển thị lại
