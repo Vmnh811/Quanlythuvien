@@ -20,7 +20,7 @@ public class Main {
 
         int[] soLuongArray = new int[5];
         ArrayList<String> maSachList = new ArrayList<>();
-        ArrayList<Sach1> danhSachSach = new ArrayList<>();
+        ArrayList<Sach> danhSachSach = new ArrayList<>();
         int luaChon;
         do {
             System.out.println("1. nhập số lượng và tìm số lượng lớn nhất");
@@ -94,7 +94,7 @@ public class Main {
                         int soLuong = scanner.nextInt();
                         scanner.nextLine();
                         maSachList.add(maSach);
-                        danhSachSach.add(new Sach1(maSach, tenSach, donGia, soLuong));
+                        danhSachSach.add(new Sach(maSach, tenSach, donGia, soLuong));
                     }
                     System.out.println("Đã thêm " + n + " cuốn sách");
                     break;
@@ -103,7 +103,7 @@ public class Main {
                     if (danhSachSach.isEmpty()) {
                         System.out.println("danh sách trống");
                     } else {
-                        for (Sach1 s : danhSachSach) {
+                        for (Sach s : danhSachSach) {
                             System.out.println("Mã: " + s.maSach + " | Tên: " + s.tenSach + " | Đơn giá: " + s.donGia + " | Số lượng: " + s.soLuong);
                         }
                     }
@@ -113,7 +113,7 @@ public class Main {
                     String maTim = scanner.nextLine();
                     int viTriTim = maSachList.indexOf(maTim);
                     if (viTriTim != -1) {
-                        Sach1 s = danhSachSach.get(viTriTim);
+                        Sach s = danhSachSach.get(viTriTim);
                         System.out.println("Đã tìm thấy sách:");
                         System.out.println("Mã: " + s.maSach + " | Tên: " + s.tenSach + " | Đơn giá: " + s.donGia + " | Số lượng: " + s.soLuong);
                     } else {
@@ -154,7 +154,7 @@ public class Main {
                         int soLuongMoi = scanner.nextInt();
                         scanner.nextLine();
 
-                        Sach1 s = danhSachSach.get(viTriSua);
+                        Sach s = danhSachSach.get(viTriSua);
                         s.tenSach = tenMoi;
                         s.donGia = donGiaMoi;
                         s.soLuong = soLuongMoi;
@@ -167,7 +167,7 @@ public class Main {
                 case 7:
                     int tongSL = 0;
                     double tongGT = 0;
-                    for (Sach1 s : danhSachSach) {
+                    for (Sach s : danhSachSach) {
                         tongSL += s.soLuong;
                         tongGT += (s.soLuong * s.donGia);
                     }
